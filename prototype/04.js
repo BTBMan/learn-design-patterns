@@ -11,7 +11,8 @@ var objectFactory = function () {
   var obj = new Object(); // 中Object.prototype克隆一个空对象出来
   var Constructor = [].shift.call(arguments); // 获取函数的第一个参数 也就是一个构造器 这里指Person函数
 
-  obj.__proto__ = Constructor.prototype; // 指向正确的原型 也就是Person函数
+  // 对象通过__proto__来记住他的原型 所有这里通过设置obj的__proto__来指向正确的原型 也就是Person函数
+  obj.__proto__ = Constructor.prototype;
 
   // Constructor(); // 这么调用 内部的this指向的是window
   var ret = Constructor.apply(obj, arguments); // 借用外部传入的构造器来给obj设置属性
