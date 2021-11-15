@@ -19,7 +19,10 @@ var objectFactory = function () {
   return typeof ret === 'object' ? ret : obj; // 确保返回的永远是一个对象
 };
 
-var person = objectFactory(Person, 'john');
+var person1 = objectFactory(Person, 'john');
+var person2 = new Person('long');
 
-console.log(person.name);
-person.sayName();
+console.log(person1.prototype === person2.prototype);
+
+console.log(person1.name);
+person1.sayName();
