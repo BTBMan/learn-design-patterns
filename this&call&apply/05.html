@@ -19,6 +19,8 @@
 
         // 此时的this指向的是window 因为被作为普通函数被调用了
         fn1();
+
+        fn1.call(this); // 此时通过call重新正确的指定this
       };
     </script>
   </body>
