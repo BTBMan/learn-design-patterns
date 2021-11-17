@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="dom1">click me</button>
+    <script>
+      // 元素节点事件调用
+      document.getElementById('dom1').onclick = function () {
+        console.log(this); // 此时的this指向的是这个元素
+
+        const fn1 = function () {
+          console.log(this);
+        };
+
+        // 此时的this指向的是window 因为被作为普通函数被调用了
+        fn1();
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="dom1">click me</button>
+    <script>
+      // 消失的this
+      const getId1 = function (id) {
+        return document.getElementById(id);
+      };
+      console.log(getId1('dom1')); // 此时是正确的获取到元素了
+
+      // 错误的调用
+      const getId2 = document.getElementById;
+      // console.log(getId2('dom1')); // 此时报错 因为getElementById的方法内部用的了this 此时作为普通函数被调用 this指向的window
+
+      // 通过apply来修正this
+      document.getElementById = (function (fn) {
+        return function () {
+          return fn.apply(document, arguments);
+        };
+      })(document.getElementById);
+      const getId3 = document.getElementById;
+      console.log(getId3('dom1')); // 此时内部已经指定了this 无论是普通函数调用 this不会变
+
+      // 此种方法会导致递归问题
+      document.getElementById = function () {
+        return document.getElementById.apply(document, arguments);
+      };
+      const getId4 = document.getElementById;
+      // console.log(getId4('dom1'));
+    </script>
+  </body>
+</html>
