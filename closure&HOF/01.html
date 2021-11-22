@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>click me</button>
+    <button>click me</button>
+    <button>click me</button>
+    <button>click me</button>
+    <button>click me</button>
+
+    <script>
+      var nodes = document.getElementsByTagName('button');
+
+      // for (var i = 0; i < nodes.length; i++) {
+      //   const element = nodes[i];
+
+      //   element.onclick = function () {
+      //     console.log(i); // 由于事件是异步的 在点击的时候 已经循环完成 此时的i已经是5 所以所有的点击输出都是5
+      //   };
+      // }
+
+      // 通过闭包来解决
+      for (var i = 0; i < nodes.length; i++) {
+        const element = nodes[i];
+
+        // 通过一个自执行函数 以参数的形势保存i的变量 此时再次点击的话 就会是0,1,2,3,4
+        (function (i) {
+          element.onclick = function () {
+            console.log(i);
+          };
+        })(i);
+      }
+    </script>
+  </body>
+</html>
