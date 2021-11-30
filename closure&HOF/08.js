@@ -1,6 +1,5 @@
 // currying (函数柯里化) 的思想1
 
-// 示例代码
 let monthlyCost = 0;
 
 const cost = function (money) {
