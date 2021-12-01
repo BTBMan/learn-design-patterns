@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 函数节流
+      function throttle(fn, interval) {
+        let timer = null;
+        let first = true;
+
+        return function () {
+          const that = this;
+          const args = arguments;
+
+          // 第一次调用不需要延迟执行
+          if (first) {
+            fn.apply(that, args);
+            return (first = false);
+          }
+
+          if (timer) {
+            // 如果存在说明前一次的延迟没有完成
+            return false;
+          }
+
+          timer = setInterval(function () {
+            clearInterval(timer);
+            timer = null;
+
+            fn.apply(that, args);
+          }, interval || 500);
+        };
+      }
+
+      window.onresize = throttle(function () {
+        console.log(1);
+      }, 500);
+    </script>
+  </body>
+</html>
