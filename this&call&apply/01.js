@@ -6,4 +6,4 @@ const obj = {
   },
 };
 
-obj.sayName();
+obj.sayName(); // john

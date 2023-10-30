@@ -1,11 +1,11 @@
 // 作为普通函数被调用
-const name = 'john';
+var name = 'john in outside'; // do not use const and let
 
 const sayName = function () {
   console.log(this.name);
 };
 
-sayName();
+sayName(); // john in outside
 
 const obj = {
   name: 'john',
@@ -16,4 +16,4 @@ const obj = {
 
 const objSayName = obj.sayName;
 
-objSayName();
+objSayName(); // john in outside
