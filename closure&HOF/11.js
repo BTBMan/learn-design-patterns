@@ -3,7 +3,7 @@ Function.prototype.uncurrying = function () {
   const that = this;
 
   return function () {
-    // 取到第一个参数 为this的指向 然后把剩余的参数通过Funciton.prototype.call的方法实现push
+    // 取到第一个参数 为this的指向 然后把剩余的参数通过Function.prototype.call的方法实现push
     const obj = [].shift.call(arguments);
 
     return that.apply(obj, arguments);

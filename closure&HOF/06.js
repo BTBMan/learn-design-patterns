@@ -11,8 +11,8 @@ const gs = single(function () {
   console.log(this);
 });
 
-const s1 = gs();
+const s1 = gs(); // window
 
-const s2 = gs();
+const s2 = gs(); // window
 
 console.log(s1 === s2); // true

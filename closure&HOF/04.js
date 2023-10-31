@@ -16,12 +16,12 @@ const CreateCommand = function (receiver) {
 };
 
 // 执行命令 打开电视
-TvCommand.prototype.execute = function () {
+CreateCommand.prototype.execute = function () {
   this.receiver.open();
 };
 
 // 撤销命令 关闭电视
-TvCommand.prototype.undo = function () {
+CreateCommand.prototype.undo = function () {
   this.receiver.close();
 };
 

@@ -4,7 +4,7 @@ Function.prototype.uncurrying = function () {
 
   return function () {
     // 借助Function.prototype.call来实现
-    return Function.prototype.call(that, arguments);
+    return Function.prototype.call(that, arguments); // 直接用[].push来执行方法
   };
 };
 
