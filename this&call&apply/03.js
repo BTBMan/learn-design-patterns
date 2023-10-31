@@ -9,7 +9,7 @@ const Person1 = function () {
 };
 
 const person1 = new Person1();
-console.log(person1.name);
+console.log(person1.name); // long
 
 const Person2 = function () {
   this.name = 'john';
@@ -19,4 +19,4 @@ const Person2 = function () {
 };
 
 const person2 = new Person2();
-console.log(person2.name);
+console.log(person2.name); // john

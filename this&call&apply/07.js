@@ -8,4 +8,4 @@ const fn = function (age, gender) {
 };
 
 const runFn = fn.bind(obj, 11); // 11的这个参数的顺序要前于调用函数时的传参
-runFn(12); // 参数会被合并到bind的参数的后面
+runFn(12); // 参数会被合并到bind的参数的后面 所以最终打印john 11 12

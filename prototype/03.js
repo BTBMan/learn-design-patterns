@@ -9,10 +9,10 @@ Person.prototype.sayName = function () {
 
 var person = new Person('张三');
 
-console.log(person.name);
-person.sayName();
+console.log(person.name); // 张三
+person.sayName(); // 张三
 
-console.log(Person.prototype);
-console.log(person.__proto__);
+console.log(Person.prototype); // { sayName: [Function (anonymous)] }
+console.log(person.__proto__); // { sayName: [Function (anonymous)] }
 console.log(Object.getPrototypeOf(person) === Person.prototype); // true
 console.log(person.__proto__ === Person.prototype); // true

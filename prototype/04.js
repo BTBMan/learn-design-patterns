@@ -9,9 +9,9 @@ Person.prototype.sayName = function () {
 
 var objectFactory = function () {
   var obj = new Object(); // 中Object.prototype克隆一个空对象出来
-  var Constructor = [].shift.call(arguments); // 获取函数的第一个参数 也就是一个构造器 这里指Person函数
+  var Constructor = [].shift.call(arguments); // 获取函数的第一个参数 也就是一个构造器 这里指Person函数(拿到构造函数)
 
-  // 对象通过__proto__来记住他的原型 所有这里通过设置obj的__proto__来指向正确的原型 也就是Person函数
+  // 对象通过__proto__来记住他的原型 所以这里通过设置obj的__proto__来指向正确的原型 也就是Person函数的原型
   obj.__proto__ = Constructor.prototype;
 
   // Constructor(); // 这么调用 内部的this指向的是window
@@ -23,7 +23,7 @@ var objectFactory = function () {
 var person1 = objectFactory(Person, 'john');
 var person2 = new Person('long');
 
-console.log(person1.prototype === person2.prototype);
+console.log(person1.prototype === person2.prototype); // true
 
-console.log(person1.name);
-person1.sayName();
+console.log(person1.name); // john
+person1.sayName(); // john

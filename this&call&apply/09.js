@@ -12,4 +12,4 @@ B.prototype.sayName = function () {
 };
 
 const b = new B('john');
-b.sayName();
+b.sayName(); // john
